@@ -1,4 +1,4 @@
-package retrowebsite.com.v1;
+package com.retrowebsite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
