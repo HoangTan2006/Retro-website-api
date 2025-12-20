@@ -1,4 +1,4 @@
-package retrowebsite.com.v1;
+package com.retrowebsite;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

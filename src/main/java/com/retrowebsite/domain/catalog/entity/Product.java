@@ -4,8 +4,10 @@ import com.retrowebsite.domain.catalog.valueobject.ProductState;
 import com.retrowebsite.domain.shared.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -13,6 +15,7 @@ import java.math.BigDecimal;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@SuperBuilder
 public class Product extends BaseEntity {
     @Column(name = "product_name")
     private String productName;
@@ -46,6 +49,21 @@ public class Product extends BaseEntity {
     @Column(name = "discount")
     private Integer discount;
 
-    @Column(name = "average_rating")
-    private Float averageRating;
+    @Column(name = "review_count")
+    private Integer reviewCount;
+
+    @Column(name = "total_rating")
+    private Integer totalRating;
+
+    @OneToMany(mappedBy = "product")
+    private Set<ProductVariant> productVariants;
+
+    public void addProductVariant(Set<ProductVariant> productVariant) {
+        this.productVariants.addAll(productVariant);
+    }
+
+    public void addRating(Integer rating) {
+        this.totalRating += rating;
+        this.totalRating++;
+    }
 }
