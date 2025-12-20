@@ -1,4 +1,4 @@
-package com.retrowebsite.domain.catalog.dto.product;
+package com.retrowebsite.domain.catalog.dto.product.request;
 
 import com.retrowebsite.domain.catalog.valueobject.ProductState;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
-public class ProductInfoDto {
+public class ProductInfoDTO {
     private String productName;
     private String thumbnail;
     private String summary;

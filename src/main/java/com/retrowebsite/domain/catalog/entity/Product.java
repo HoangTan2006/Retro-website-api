@@ -40,7 +40,8 @@ public class Product extends BaseEntity {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    @Embedded
+    @Enumerated(EnumType.STRING)
+    @Column(name = "product_state")
     private ProductState productState;
 
     @Column(name = "sale_price")

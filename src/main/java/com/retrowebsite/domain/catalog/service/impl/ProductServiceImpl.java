@@ -1,7 +1,7 @@
 package com.retrowebsite.domain.catalog.service.impl;
 
-import com.retrowebsite.domain.catalog.dto.product.ListVariantDto;
-import com.retrowebsite.domain.catalog.dto.product.ProductInfoDto;
+import com.retrowebsite.domain.catalog.dto.product.request.ListVariantDTO;
+import com.retrowebsite.domain.catalog.dto.product.request.ProductInfoDTO;
 import com.retrowebsite.domain.catalog.entity.Product;
 import com.retrowebsite.domain.catalog.entity.ProductVariant;
 import com.retrowebsite.domain.catalog.exception.CatalogException;
@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
     private final ColorRepository colorRepo;
 
     @Override
-    public Product createProduct(ProductInfoDto dto) {
+    public Product addProduct(ProductInfoDTO dto) {
         if (dto.getSalePrice().compareTo(BigDecimal.ZERO) < 0) {
             throw new CatalogException(CatalogExceptionEnum.SALE_PRICE_INVALID);
         }
@@ -72,7 +72,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public Product addVariant(ListVariantDto dto) {
+    public Product addVariant(ListVariantDTO dto) {
         if (dto.getVariants().stream().anyMatch(p -> p.getSalePrice().compareTo(BigDecimal.ZERO) < 0)) {
             throw new CatalogException(CatalogExceptionEnum.SALE_PRICE_INVALID);
         }
