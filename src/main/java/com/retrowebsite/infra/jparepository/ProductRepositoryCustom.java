@@ -1,11 +1,7 @@
 package com.retrowebsite.infra.jparepository;
 
-import com.retrowebsite.domain.catalog.dto.product.response.ProductDetailDTO;
-import com.retrowebsite.domain.catalog.entity.Product;
-import com.retrowebsite.domain.catalog.repository.ProductRepository;
-import com.retrowebsite.domain.catalog.valueobject.ProductState;
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.retrowebsite.catalog.dto.product.response.ProductDetailDTO;
+import com.retrowebsite.catalog.domain.valueobject.ProductState;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
